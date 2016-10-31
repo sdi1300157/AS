@@ -83,7 +83,7 @@ public class ProximityMain extends Activity implements SensorEventListener {
 
        if(x<5) {//ringtone();
            Toast.makeText(getBaseContext(),"inserted",Toast.LENGTH_SHORT).show();
-		   //Toast.makeText(getApplicationContext(), String.valueOf(progress), Toast.LENGTH_SHORT).show();
+		   Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
 
 
 
