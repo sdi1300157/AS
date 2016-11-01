@@ -21,6 +21,7 @@ public class ProximityMain extends Activity implements SensorEventListener {
 	private SensorManager mSensorManager;
     private Sensor mProximity;
     private Vibrator v;
+	private Toast toast = null;
     private static Context aContext=null;
     private static Boolean supported;
 		//private int progress=seekbar::pr();
@@ -32,15 +33,16 @@ public class ProximityMain extends Activity implements SensorEventListener {
 		setContentView(R.layout.proximity);
          v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 		mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+		toast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG);
 		mProximity = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
-        mSensorManager.registerListener(this, mProximity , SensorManager.SENSOR_DELAY_GAME);
+        mSensorManager.registerListener(this, mProximity , SensorManager.SENSOR_DELAY_FASTEST);
 
 
 	}
     
     protected void onResume() {
         super.onResume();
-        mSensorManager.registerListener(this, mProximity, SensorManager.SENSOR_DELAY_GAME);
+        mSensorManager.registerListener(this, mProximity, SensorManager.SENSOR_DELAY_FASTEST);
     }
 
     protected void onPause() {
@@ -73,9 +75,10 @@ public class ProximityMain extends Activity implements SensorEventListener {
         v.vibrate(500);
 
        if(x<5) {//ringtone();
-           Toast.makeText(getBaseContext(),"inserted",Toast.LENGTH_SHORT).show();
-		   Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
-
+           //Toast.makeText(getBaseContext(),"inserted",Toast.LENGTH_SHORT).show();
+		  // Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
+		   toast.setText("inserted!");
+		   toast.show();
 
 
        };

@@ -1,4 +1,5 @@
 package androidexample.myapplication.accelerometer;
+import android.app.Activity;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -10,12 +11,11 @@ import android.widget.Toast;
 
 import com.ebakyt.androidsensors.R;
 
-import androidexample.myapplication.seekbar;
-
-public class AcceleroMain extends seekbar  implements SensorEventListener {
+public class AcceleroMain extends Activity implements SensorEventListener {
 
 	private SensorManager mSensorManager;
     private Sensor mAccelerometer;
+	private Toast toast = null;
 	
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,8 @@ public class AcceleroMain extends seekbar  implements SensorEventListener {
 		float x = event.values[0];
 		float y = event.values[1];
 		float z = event.values[2];
-		Toast.makeText(getApplicationContext(), String.valueOf(progress), Toast.LENGTH_SHORT).show();
+
+		//Toast.makeText(getApplicationContext(), String.valueOf(progress), Toast.LENGTH_SHORT).show();
 		tvX.setText(Float.toString(x));
 		tvY.setText(Float.toString(y));
 		tvZ.setText(Float.toString(z));
