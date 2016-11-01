@@ -10,105 +10,24 @@
     tools:context=".Second" >
 
     <Button
-        android:id="@+id/btnPressure"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/btnLight"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="10dp"
-        android:text="Pressure Sensor"
-        android:textColor="#fff" />
-
-    <Button
         android:id="@+id/btnProximity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/btnPressure"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginTop="10dp"
         android:text="Proximity Sensor"
-        android:textColor="#fff" />
+        android:textColor="#fff"
+        android:layout_marginTop="62dp"
+        android:layout_below="@+id/btnLight"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:text="sett"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btnAccelerometer"
-        android:layout_toEndOf="@+id/textView1"
-        android:id="@+id/btnsettings" />
-
-    <Button
-        android:id="@+id/btnAccelerometer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:text="Accelerometer"
-        android:textColor="#fff"
-        android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp" />
-
-    <Button
-        android:id="@+id/btnLinearAcceleration"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:text="Linear Acceleration"
-        android:textColor="#fff"
-        android:layout_below="@+id/btnAccelerometer"
+        android:id="@+id/btnsettings"
+        android:layout_alignParentTop="true"
         android:layout_alignEnd="@+id/btnAccelerometer" />
-
-    <Button
-        android:id="@+id/btnGyroscope"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:text="Gyroscope"
-        android:textColor="#fff"
-        android:layout_below="@+id/btnLinearAcceleration"
-        android:layout_alignEnd="@+id/btnLinearAcceleration" />
-
-    <Button
-        android:id="@+id/btnMagnetometer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:text="Magnetometer"
-        android:textColor="#fff"
-        android:layout_below="@+id/btnGyroscope"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:id="@+id/TextView01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Scalar Sensors"
-        android:textColor="#ff0"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_below="@+id/btnMagnetometer"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:id="@+id/btnLight"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="12dp"
-        android:text="Light Sensor"
-        android:textColor="#fff"
-        android:layout_below="@+id/TextView01"
-        android:layout_alignStart="@+id/btnPressure" />
 
     <TextView
         android:id="@+id/textView1"
@@ -118,8 +37,32 @@
         android:textColor="#ff0"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp" />
+        android:layout_marginTop="29dp"
+        android:layout_below="@+id/btnsettings"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btnLight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:text="Light Sensor"
+        android:textColor="#fff"
+        android:layout_marginTop="64dp"
+        android:layout_below="@+id/btnAccelerometer"
+        android:layout_alignStart="@+id/btnProximity" />
+
+    <Button
+        android:id="@+id/btnAccelerometer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:text="Accelerometer"
+        android:textColor="#fff"
+        android:layout_marginTop="72dp"
+        android:layout_below="@+id/textView1"
+        android:layout_alignStart="@+id/btnProximity" />
 
 </RelativeLayout>
