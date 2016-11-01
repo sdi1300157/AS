@@ -2,7 +2,6 @@ package androidexample.myapplication.proximity;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -12,9 +11,6 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,12 +35,7 @@ public class ProximityMain extends Activity implements SensorEventListener {
 		mProximity = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
         mSensorManager.registerListener(this, mProximity , SensorManager.SENSOR_DELAY_GAME);
 
-        Button btProxiGraph = (Button) findViewById(R.id.btnProximityGraph);
-        btProxiGraph.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				startActivity(new Intent(ProximityMain.this, ProximityGraph.class));
-			}
-		});
+
 	}
     
     protected void onResume() {

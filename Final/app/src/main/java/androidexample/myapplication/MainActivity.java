@@ -10,12 +10,11 @@ import android.widget.Button;
 
 import com.ebakyt.androidsensors.R;
 
-import androidexample.myapplication.acceleration.LinAcceleroMain;
+
 import androidexample.myapplication.accelerometer.AcceleroMain;
-import androidexample.myapplication.gyroscope.GyroMain;
+
 import androidexample.myapplication.light.LightMain;
-import androidexample.myapplication.magnetometer.MagnetoMain;
-import androidexample.myapplication.pressure.PressureMain;
+
 import androidexample.myapplication.proximity.ProximityMain;
 
 public class MainActivity extends Activity {
@@ -36,17 +35,11 @@ public class MainActivity extends Activity {
 		btAccelo.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {				
 				startActivity(new Intent(MainActivity.this, AcceleroMain.class));
-				//startActivity(new Intent(MainActivity.this, GyroMain.class));
-				startActivity(new Intent(MainActivity.this, ProximityMain.class));
+
 			}
 		});
         
-        Button btGyro = (Button) findViewById(R.id.btnGyroscope);
-        btGyro.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				startActivity(new Intent(MainActivity.this, GyroMain.class));
-			}
-		});
+
         
         Button btLight = (Button) findViewById(R.id.btnLight);
         btLight.setOnClickListener(new OnClickListener() {
@@ -55,27 +48,7 @@ public class MainActivity extends Activity {
 			}
 		});
         
-        Button btLinAccelo = (Button) findViewById(R.id.btnLinearAcceleration);
-        btLinAccelo.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {				
-				startActivity(new Intent(MainActivity.this, LinAcceleroMain.class));
-			}
-		});
-        
-        Button btMagneto = (Button) findViewById(R.id.btnMagnetometer);
-        btMagneto.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {				
-				startActivity(new Intent(MainActivity.this, MagnetoMain.class));
-			}
-		});
-        
-        Button btPress = (Button) findViewById(R.id.btnPressure);
-        btPress.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {				
-				startActivity(new Intent(MainActivity.this, PressureMain.class));
-			}
-		});
-        
+
         Button btProxi = (Button) findViewById(R.id.btnProximity);
         btProxi.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {				

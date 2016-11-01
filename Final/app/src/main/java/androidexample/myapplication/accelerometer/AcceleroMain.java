@@ -1,14 +1,10 @@
 package androidexample.myapplication.accelerometer;
 import android.content.Context;
-import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,12 +26,7 @@ public class AcceleroMain extends seekbar  implements SensorEventListener {
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mSensorManager.registerListener(this, mAccelerometer , SensorManager.SENSOR_DELAY_NORMAL);
 
-        Button btAcceloGraph = (Button) findViewById(R.id.btnAcceleroGraph);
-        btAcceloGraph.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				startActivity(new Intent(AcceleroMain.this, AcceleroGraph.class));
-			}
-		});
+
 	}
 	
 	protected void onResume() {

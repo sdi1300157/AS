@@ -25,25 +25,12 @@
         </activity>
         <activity android:name="androidexample.myapplication.seekbar"></activity>
         <activity android:name="androidexample.myapplication.accelerometer.AcceleroMain"></activity>
-        <activity android:name="androidexample.myapplication.accelerometer.AcceleroGraph"></activity>
-        
-        <activity android:name="androidexample.myapplication.gyroscope.GyroMain"></activity>
-        <activity android:name="androidexample.myapplication.gyroscope.GyroGraph"></activity>
-        
+
+
         <activity android:name="androidexample.myapplication.light.LightMain"></activity>
-        <activity android:name="androidexample.myapplication.light.LightGraph"></activity>
-        
-        <activity android:name="androidexample.myapplication.acceleration.LinAcceleroMain"></activity>
-        <activity android:name="androidexample.myapplication.acceleration.LinAcceleroGraph"></activity>
-        
-        <activity android:name="androidexample.myapplication.magnetometer.MagnetoMain"></activity>
-        <activity android:name="androidexample.myapplication.magnetometer.MagnetoGraph"></activity>
-        
-        <activity android:name="androidexample.myapplication.pressure.PressureMain"></activity>
-        <activity android:name="androidexample.myapplication.pressure.PressureGraph"></activity>
-        
+
+
         <activity android:name="androidexample.myapplication.proximity.ProximityMain"></activity>
-        <activity android:name="androidexample.myapplication.proximity.ProximityGraph"></activity>
 
     </application>
 
