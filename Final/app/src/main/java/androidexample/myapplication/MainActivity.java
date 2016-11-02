@@ -54,6 +54,17 @@ public class MainActivity extends Activity {
 				startActivity(new Intent(MainActivity.this, ProximityMain.class));
 			}
 		});
+
+        Button btExit = (Button) findViewById(R.id.btnexit);
+        btExit.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                finish();
+                System.exit(0);
+            }
+        });
 	}
     /*
 	@Override
@@ -98,18 +109,19 @@ public class MainActivity extends Activity {
         return true;
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.action_settings:
-                Toast.makeText(getBaseContext(),"insertfdgfded", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(),"Settings selected", Toast.LENGTH_SHORT).show();
                 Intent toy = new Intent(MainActivity.this, seekbar.class);
                 startActivity(toy);
                 //break;
                 return true;
             case R.id.menu_exit:
-                Toast.makeText(getBaseContext(),"inserfgggggggggggggted",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(),"Exit app",Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

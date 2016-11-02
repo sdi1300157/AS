@@ -17,18 +17,6 @@
         android:textSize="19sp" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="30dp"
-        android:text="Proximity :"
-        android:textColor="#0ff"
-        android:textSize="17sp" />
-
-    <TextView
         android:id="@+id/textViewX"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,16 +29,16 @@
         android:textColor="#aaa"
         android:textSize="17sp" />
 
-    <Button
-        android:id="@+id/btnProximityGraph"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView2"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="30dp"
-        android:text="Show in Live Graph"
-        android:textColor="#fff" />
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="61dp"
+        android:text="Proximity :"
+        android:textColor="#0ff"
+        android:textSize="17sp"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
