@@ -122,6 +122,7 @@ public class MainActivity extends Activity {
                 return true;
             case R.id.menu_exit:
                 Toast.makeText(getBaseContext(),"Exit app",Toast.LENGTH_SHORT).show();
+                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
