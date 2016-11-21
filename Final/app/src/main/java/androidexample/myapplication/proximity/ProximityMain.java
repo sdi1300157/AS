@@ -16,38 +16,42 @@ import android.widget.Toast;
 
 import com.ebakyt.androidsensors.R;
 
-public class ProximityMain extends Activity implements SensorEventListener {
+public class ProximityMain extends  Activity  implements SensorEventListener {
 
-	private SensorManager mSensorManager;
+
+	private SensorManager mSensorManager1;
     private Sensor mProximity;
     private Vibrator v;
 	private Toast toast = null;
     private static Context aContext=null;
     private static Boolean supported;
 		//private int progress=seekbar::pr();
-    @Override
-	protected void onCreate(Bundle savedInstanceState) {
+
+
+        @Override
+        final public void onCreate (Bundle savedInstanceState){
 
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.proximity);
+		//Intent intent = new Intent(this, MainActivity.class);
          v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-		mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+		mSensorManager1 = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 		toast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG);
-		mProximity = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
-        mSensorManager.registerListener(this, mProximity , SensorManager.SENSOR_DELAY_FASTEST);
+		mProximity = mSensorManager1.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+        mSensorManager1.registerListener(this, mProximity , SensorManager.SENSOR_DELAY_FASTEST);
 
 
 	}
     
     protected void onResume() {
         super.onResume();
-        mSensorManager.registerListener(this, mProximity, SensorManager.SENSOR_DELAY_FASTEST);
+        mSensorManager1.registerListener(this, mProximity, SensorManager.SENSOR_DELAY_FASTEST);
     }
 
     protected void onPause() {
         super.onPause();
-        mSensorManager.unregisterListener(this);
+        mSensorManager1.unregisterListener(this);
     }
 
 	@Override
@@ -69,7 +73,7 @@ public class ProximityMain extends Activity implements SensorEventListener {
 	@Override
 	public void onSensorChanged(SensorEvent event) {
 
-		TextView tvX= (TextView)findViewById(R.id.textViewX);
+		TextView tvX= (TextView)findViewById(R.id.textViewX1);
 		float x = event.values[0];
 
         v.vibrate(500);

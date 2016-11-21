@@ -13,24 +13,37 @@ import android.widget.Toast;
 
 import com.ebakyt.androidsensors.R;
 
-import androidexample.myapplication.accelerometer.AcceleroMain;
 import androidexample.myapplication.light.LightMain;
 import androidexample.myapplication.proximity.ProximityMain;
+//test comment
 public class MainActivity extends Activity {
 
+public ProximityMain prox;
+    public LightMain ligh;
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-
+		setContentView(R.layout.activity_main_1);
+//prox=new ProximityMain();
+       // ligh= new LightMain();
 		Button btsettings = (Button) findViewById(R.id.btnsettings);
 		btsettings.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				startActivity(new Intent(MainActivity.this, seekbar.class));
+				//startActivity(new Intent(MainActivity.this, seekbar.class));
+                //startActivity(new Intent(MainActivity.this, AcceleroMain.class));
+               // startActivity(new Intent(MainActivity.this, ProximityMain.class));
+                //startActivity(new Intent(MainActivity.this, LightMain.class));
+
+                ligh=new LightMain();
+                //ligh= new LightMain(LightMain.this);
+
+
+
+
 
 			}
 		});
-		Button btAccelo = (Button) findViewById(R.id.btnAccelerometer);
+		/*Button btAccelo = (Button) findViewById(R.id.btnAccelerometer);
 		btAccelo.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {				
 				startActivity(new Intent(MainActivity.this, AcceleroMain.class));
@@ -53,7 +66,7 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {				
 				startActivity(new Intent(MainActivity.this, ProximityMain.class));
 			}
-		});
+		});*/
 	}
     /*
 	@Override

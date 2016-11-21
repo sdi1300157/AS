@@ -22,6 +22,7 @@ public class AcceleroMain extends Activity implements SensorEventListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.accelero);
 
+
 		mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mSensorManager.registerListener(this, mAccelerometer , SensorManager.SENSOR_DELAY_NORMAL);
@@ -47,7 +48,7 @@ public class AcceleroMain extends Activity implements SensorEventListener {
 	@Override
 	public void onSensorChanged(SensorEvent event) {
 		
-		TextView tvX= (TextView)findViewById(R.id.textViewX);
+		TextView tvX= (TextView)findViewById(R.id.textViewXX);
 		TextView tvY= (TextView)findViewById(R.id.textViewY);
 		TextView tvZ= (TextView)findViewById(R.id.textViewZ);
 		
