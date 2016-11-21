@@ -17,18 +17,6 @@
         android:textSize="19sp" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1"
-        android:layout_marginLeft="135dp"
-        android:layout_marginTop="30dp"
-        android:text="Light :"
-        android:textColor="#0ff"
-        android:textSize="17sp" />
-
-    <TextView
         android:id="@+id/textViewX"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,4 +29,19 @@
         android:textColor="#aaa"
         android:textSize="17sp" />
 
+<<<<<<< HEAD
+=======
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="135dp"
+        android:layout_marginTop="56dp"
+        android:text="Light :"
+        android:textColor="#0ff"
+        android:textSize="17sp"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true" />
+
+>>>>>>> origin/master
 </RelativeLayout>
