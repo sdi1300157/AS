@@ -25,7 +25,7 @@
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/textView2"
         android:gravity="left"
-        android:hint="Light Values"
+        android:hint="@string/proximity_values"
         android:textColor="#aaa"
         android:textSize="17sp" />
 

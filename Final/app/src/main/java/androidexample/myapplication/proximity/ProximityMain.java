@@ -73,7 +73,7 @@ public class ProximityMain extends  Activity  implements SensorEventListener {
 	@Override
 	public void onSensorChanged(SensorEvent event) {
 
-		TextView tvX= (TextView)findViewById(R.id.textViewX1);
+		TextView tvX= (TextView)findViewById(R.id.textViewX);
 		float x = event.values[0];
 
         v.vibrate(500);

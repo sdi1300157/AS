@@ -1,7 +1,6 @@
 package androidexample.myapplication.light;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -17,7 +16,7 @@ import com.ebakyt.androidsensors.R;
 public class LightMain extends Activity implements SensorEventListener {
 
 
-    AlertDialog.Builder box;
+
     private SensorManager mSensorManager;
     public Sensor mLight;
     //private Vibrator v;
@@ -31,20 +30,11 @@ public class LightMain extends Activity implements SensorEventListener {
 
 
 
-    //public  LightMain() {
-      //  this.onCreate(savedInstanceState);
-    //}
-
-
-
-        //LightMain() {
-
         @Override
         final public void onCreate (Bundle savedInstanceState){
+            super.onCreate(savedInstanceState);
 
             setContentView(R.layout.light);
-            // Intent intent = new Intent();
-            // box = new AlertDialog.Builder(this);
             mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
             toast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG);
             v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -54,9 +44,7 @@ public class LightMain extends Activity implements SensorEventListener {
 
         }
 
-    protected void onStart(){
 
-    }
 
     protected void onResume() {
         super.onResume();

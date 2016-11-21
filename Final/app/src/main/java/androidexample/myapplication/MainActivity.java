@@ -31,10 +31,10 @@ public ProximityMain prox;
 			public void onClick(View v) {
 				//startActivity(new Intent(MainActivity.this, seekbar.class));
                 //startActivity(new Intent(MainActivity.this, AcceleroMain.class));
-               // startActivity(new Intent(MainActivity.this, ProximityMain.class));
-                //startActivity(new Intent(MainActivity.this, LightMain.class));
+                startActivity(new Intent(MainActivity.this, ProximityMain.class));
+                startActivity(new Intent(MainActivity.this, LightMain.class));
 
-                ligh=new LightMain();
+                //ligh=new LightMain();
                 //ligh= new LightMain(LightMain.this);
 
 
@@ -66,22 +66,12 @@ public ProximityMain prox;
 			public void onClick(View v) {				
 				startActivity(new Intent(MainActivity.this, ProximityMain.class));
 			}
-<<<<<<< HEAD
+
 		});*/
-=======
-		});
 
-        Button btExit = (Button) findViewById(R.id.btnexit);
-        btExit.setOnClickListener(new OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                finish();
-                System.exit(0);
-            }
-        });
->>>>>>> origin/master
+
+
 	}
     /*
 	@Override
