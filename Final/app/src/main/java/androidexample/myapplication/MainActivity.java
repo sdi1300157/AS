@@ -2,13 +2,17 @@ package androidexample.myapplication;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.Context;
+import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ebakyt.androidsensors.R;
@@ -19,22 +23,32 @@ import androidexample.myapplication.proximity.ProximityMain;
 public class MainActivity extends Activity {
 
 public ProximityMain prox;
+    private SensorManager mSensorManager;
     public LightMain ligh;
+    public Vibrator v;
+    public Toast toast = null;
+    TextView tvX;
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_1);
 //prox=new ProximityMain();
-       // ligh= new LightMain();
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        toast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG);
+        TextView tvX = (TextView) findViewById(R.id.textViewX);
+        ligh= new LightMain(mSensorManager,v,toast,tvX);
 		Button btsettings = (Button) findViewById(R.id.btnsettings);
 		btsettings.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				//startActivity(new Intent(MainActivity.this, seekbar.class));
                 //startActivity(new Intent(MainActivity.this, AcceleroMain.class));
-                startActivity(new Intent(MainActivity.this, ProximityMain.class));
-                startActivity(new Intent(MainActivity.this, LightMain.class));
+                //startActivity(new Intent(MainActivity.this, ProximityMain.class));
+               // startActivity(new Intent(MainActivity.this, LightMain.class));
 
-                //ligh=new LightMain();
+               // ligh=new LightMain();
+                //ligh.onCreate(savedInstanceState);
+
                 //ligh= new LightMain(LightMain.this);
 
 

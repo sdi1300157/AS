@@ -13,10 +13,12 @@ import android.widget.Toast;
 import com.ebakyt.androidsensors.R;
 
 public class seekbar extends Activity{
-
+//settings
     private SeekBar seekBar;
     private TextView textView;
     public int progress = 0;
+    public  int Light_Interval=0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
