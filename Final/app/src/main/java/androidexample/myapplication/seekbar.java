@@ -17,7 +17,9 @@ public class seekbar extends Activity{
     private SeekBar seekBar;
     private TextView textView;
     public int progress = 0;
-    public  int Light_Interval=0;
+    public int Light_Interval=0;
+    public int Proximity_Interval=0;
+    public int Accelero_Interval=0;
 
 
     @Override

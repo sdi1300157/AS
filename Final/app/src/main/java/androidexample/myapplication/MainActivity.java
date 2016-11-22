@@ -17,14 +17,16 @@ import android.widget.Toast;
 
 import com.ebakyt.androidsensors.R;
 
+import androidexample.myapplication.accelerometer.AcceleroMain;
 import androidexample.myapplication.light.LightMain;
 import androidexample.myapplication.proximity.ProximityMain;
 //test comment
 public class MainActivity extends Activity {
 
-public ProximityMain prox;
+    public ProximityMain prox;
     private SensorManager mSensorManager;
     public LightMain ligh;
+    public AcceleroMain accel;
     public Vibrator v;
     public Toast toast = null;
     TextView tvX;
@@ -37,7 +39,11 @@ public ProximityMain prox;
         v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         toast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG);
         TextView tvX = (TextView) findViewById(R.id.textViewX);
+        TextView tvY = (TextView) findViewById(R.id.textViewX);
+        TextView tvZ = (TextView) findViewById(R.id.textViewX);
         ligh= new LightMain(mSensorManager,v,toast,tvX);
+        prox= new ProximityMain(mSensorManager,v,toast,tvX);
+        accel= new AcceleroMain(mSensorManager,toast,tvX,tvY,tvZ);
 		Button btsettings = (Button) findViewById(R.id.btnsettings);
 		btsettings.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
