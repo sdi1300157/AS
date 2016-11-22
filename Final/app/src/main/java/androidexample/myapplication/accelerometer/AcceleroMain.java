@@ -28,7 +28,7 @@ public class AcceleroMain extends seekbar implements SensorEventListener{
 
 
 	public AcceleroMain(SensorManager mSensorManager,Toast toast,TextView tvX,TextView tvY,TextView tvZ){
-		seekbar=this.Accelero_Interval;
+		//seekbar=this.Accelero_Interval;
 		this.mSensorManager=mSensorManager;
 		this.toast=toast;
 		this.tvX=tvX;

@@ -31,7 +31,7 @@ public class LightMain extends seekbar implements SensorEventListener {
 
     public LightMain(SensorManager mSensorManager,Vibrator v,Toast toast,TextView tvX) {
         //super.onCreate(savedInstanceState);
-        seekbar=this.Light_Interval;
+        //seekbar=this.Light_Interval;
         //setContentView(R.layout.light);
         this.mSensorManager=mSensorManager;
         this.v=v;

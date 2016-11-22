@@ -34,7 +34,7 @@ public class ProximityMain extends seekbar implements SensorEventListener{
     public static Boolean supported;
 		//private int progress=seekbar::pr();
 	public ProximityMain (SensorManager mSensorManager,Vibrator v,Toast toast,TextView tvX) {
-		seekbar=this.Proximity_Interval;
+		//seekbar=this.Proximity_Interval;
 		this.mSensorManager=mSensorManager;
 		this.v=v;
 		this.toast=toast;
