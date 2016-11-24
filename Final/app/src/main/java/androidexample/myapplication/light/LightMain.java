@@ -25,13 +25,13 @@ public class LightMain extends seekbar implements SensorEventListener {
     public Toast toast = null;
     public static Context aContext = null;
     TextView tvX;
-  
+
     public static Boolean supported;
     //seekbar=this.Light_Interval;
 
     public LightMain(SensorManager mSensorManager,Vibrator v,Toast toast,TextView tvX) {
         //super.onCreate(savedInstanceState);
-        seekbar=this.Light_Interval;
+        //seekbar=this.Light_Interval;
         //setContentView(R.layout.light);
         this.mSensorManager=mSensorManager;
         this.v=v;
