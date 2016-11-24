@@ -13,19 +13,21 @@ public class seekbar {
     public  SeekBar seekBar;
     protected TextView textView;
 
-    public static int Progress=0;
+    public static int Progress;
     public Toast toast;
 
 public seekbar( Toast toast,SeekBar seekBar, TextView textView){
+    //this.Progress=a;
     this.seekBar=seekBar;
     this.textView=textView;
     this.toast=toast;}
 
 
     public void exec(){
+        //seekBar.setProgress(Progress);
 
         // Initialize the textview with '0'.
-       textView.setText("Covered: " + seekBar.getProgress() + "/" +seekBar.getMax());
+       toast.setText("Covered: " + seekBar.getProgress() + "/" +seekBar.getMax());
 
 
         seekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
@@ -36,6 +38,7 @@ public seekbar( Toast toast,SeekBar seekBar, TextView textView){
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
                 Progress = progresValue;
+                //Progress=seekBar.getProgress();
                 toast.setText(String.valueOf(Progress));
                 toast.show();
 
@@ -58,9 +61,10 @@ public seekbar( Toast toast,SeekBar seekBar, TextView textView){
             }
         });
     }
-public int pr(){
-    return Progress;
+public void set_pr(int a){
+    Progress=a;
 }
+    public int pr(){return seekBar.getProgress();}
     // A private method to help us initialize our variables.
     private void initializeVariables() {
 

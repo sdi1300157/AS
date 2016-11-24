@@ -77,13 +77,13 @@ public class LightMain  implements SensorEventListener {
 
 
         if (x < 5) {//ringtone();
-            v.vibrate(500);
+            //v.vibrate(500);
             //Toast.makeText(getBaseContext(),"inserted",Toast.LENGTH_SHORT).show();
             //Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
             //toast.setText(String.valueOf(Light_Interval));
 
-            toast.setText(String.valueOf(Light_Interval)+"inserted Light!");
-            toast.show();
+            //toast.setText(String.valueOf(Light_Interval)+"inserted Light!");
+            //toast.show();
         }
         ;
 

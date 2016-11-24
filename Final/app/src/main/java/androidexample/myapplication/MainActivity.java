@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -50,15 +51,7 @@ public class MainActivity extends Activity {
         //getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //toast1 = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG);
-         seekBar = (SeekBar) findViewById(R.id.seekBar);
-         textView = (TextView) findViewById(R.id.textView1);
-         toy=new seekbar(toast,seekBar,textView);
-         seekBar1 = (SeekBar) findViewById(R.id.seekBar1);
-         textView1 = (TextView) findViewById(R.id.textView13);
-         toy1=new seekbar(toast,seekBar1,textView1);
-         seekBar2 = (SeekBar) findViewById(R.id.seekBar2);
-         textView2 = (TextView) findViewById(R.id.textView16);
-         toy2=new seekbar(toast,seekBar2,textView2);
+
 
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayOptions(actionBar.DISPLAY_USE_LOGO | ActionBar.DISPLAY_SHOW_CUSTOM);
@@ -105,23 +98,12 @@ public class MainActivity extends Activity {
         switch (item.getItemId()) {
             case R.id.action_settings:
                 Toast.makeText(getBaseContext(),"Settings selected", Toast.LENGTH_SHORT).show();
+                //Settings.Set_Light_Var(Light_Interval);
+                Intent cla = new Intent(MainActivity.this,Settings.class);
+                startActivity(cla);
+                //Light_Interval=Settings.Read_Light_Var();
+                toast.setText(String.valueOf(Light_Interval));
 
-                setContentView(R.layout.settings);
-
-
-                toy.exec(seekBar);
-                Light_Interval=toy.pr();
-                ligh.change(Light_Interval);
-
-
-                //toy1.exec();
-                Proximity_Interval=toy1.pr();
-                prox.change(Proximity_Interval);
-
-
-               // toy2.exec();
-                Accelero_Interval=toy2.pr();
-                accel.change(Accelero_Interval);
                 return true;
             case R.id.menu_exit:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);

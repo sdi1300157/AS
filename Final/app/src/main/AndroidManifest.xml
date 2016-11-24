@@ -26,7 +26,7 @@
             </intent-filter>
 
         </activity>
-        <activity android:name="androidexample.myapplication.seekbar"></activity>
+        <activity android:name="androidexample.myapplication.Settings"></activity>
         <activity android:name="androidexample.myapplication.accelerometer.AcceleroMain"></activity>
 
 

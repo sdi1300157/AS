@@ -96,13 +96,13 @@ public class ProximityMain extends seekbar1 implements SensorEventListener{
 		//TextView tvX1= (TextView)findViewById(R.id.textViewX);
 		float x = event.values[0];
 
-        v.vibrate(500);
+        //v.vibrate(500);
 
        if(x < 5) {//ringtone();
            //Toast.makeText(getBaseContext(),"inserted",Toast.LENGTH_SHORT).show();
 		  // Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
-		   toast.setText("inserted!");
-		   toast.show();
+		  // toast.setText("inserted!");
+		   //toast.show();
 
 
        };
