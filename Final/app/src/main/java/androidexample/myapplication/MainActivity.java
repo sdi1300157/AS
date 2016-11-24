@@ -2,19 +2,17 @@ package androidexample.myapplication;
 
 import android.app.ActionBar;
 import android.app.Activity;
-import android.content.Intent;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Vibrator;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,19 +22,17 @@ import com.ebakyt.androidsensors.R;
 import androidexample.myapplication.accelerometer.AcceleroMain;
 import androidexample.myapplication.light.LightMain;
 import androidexample.myapplication.proximity.ProximityMain;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 
 public class MainActivity extends Activity {
 
     public ProximityMain prox;
-    private SensorManager mSensorManager;
+    private SensorManager mSensorManager,mSensorManager_P,mSensorManager_A;
     public LightMain ligh;
     public AcceleroMain accel;
     public Vibrator v;
     public Toast toast = null;
     public ImageView imageView;
-    TextView tvX;
+    //TextView tvX;
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
@@ -59,99 +55,23 @@ public class MainActivity extends Activity {
 
 //prox=new ProximityMain();
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mSensorManager_P= (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mSensorManager_A= (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         toast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG);
+
         TextView tvX = (TextView) findViewById(R.id.textViewX);
-        TextView tvY = (TextView) findViewById(R.id.textViewX);
-        TextView tvZ = (TextView) findViewById(R.id.textViewX);
+
+        TextView tvX1 = (TextView) findViewById(R.id.textViewX1);
+        TextView tvXX = (TextView) findViewById(R.id.textViewXX);
+        TextView tvY = (TextView) findViewById(R.id.textViewY);
+        TextView tvZ = (TextView) findViewById(R.id.textViewZ);
         ligh= new LightMain(mSensorManager,v,toast,tvX);
-        prox= new ProximityMain(mSensorManager,v,toast,tvX);
-        accel= new AcceleroMain(mSensorManager,toast,tvX,tvY,tvZ);
-		Button btsettings = (Button) findViewById(R.id.btnsettings);
-		btsettings.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				//startActivity(new Intent(MainActivity.this, seekbar.class));
-                //startActivity(new Intent(MainActivity.this, AcceleroMain.class));
-                //startActivity(new Intent(MainActivity.this, ProximityMain.class));
-               // startActivity(new Intent(MainActivity.this, LightMain.class));
-
-               // ligh=new LightMain();
-                //ligh.onCreate(savedInstanceState);
-
-                //ligh= new LightMain(LightMain.this);
-
-
-
-
-
-			}
-		});
-		/*Button btAccelo = (Button) findViewById(R.id.btnAccelerometer);
-		btAccelo.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				startActivity(new Intent(MainActivity.this, AcceleroMain.class));
-
-			}
-		});
-
-
-
-        Button btLight = (Button) findViewById(R.id.btnLight);
-        btLight.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				startActivity(new Intent(MainActivity.this, LightMain.class));
-			}
-		});
-
-
-        Button btProxi = (Button) findViewById(R.id.btnProximity);
-        btProxi.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				startActivity(new Intent(MainActivity.this, ProximityMain.class));
-			}
-
-		});*/
-
-
-
+        prox= new ProximityMain(mSensorManager_P,v,toast,tvX1);
+        accel= new AcceleroMain(mSensorManager,toast,tvXX,tvY,tvZ);
 
 	}
-    /*
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
 
-		//noinspection SimplifiableIfStatement
-		switch (id) {
-			case R.id.action_settings:
-				Intent toy = new Intent(MainActivity.this, seekbar.class);
-				startActivity(toy);
-				break;
-			case R.id.menu_exit:
-				//onBackPressed();
-				finish();
-				break;
-		}
-
-		return super.onOptionsItemSelected(item);
-
-	}*/
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuItem item = menu.findItem(R.id.action_settings);
-        item.setOnMenuItemClickListener(new OnMenuItemClickListener() {
-
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                MainActivity.this.someFunctionInYourActivity();
-                return true;
-            }
-        });
-        return true;
-    }*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

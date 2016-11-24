@@ -29,16 +29,16 @@ public class ProximityMain extends seekbar implements SensorEventListener{
 	public Vibrator v;
     public Toast toast = null;
     private static Context aContext=  null;
-	TextView tvX;
+	TextView tvX1;
 
     public static Boolean supported;
 		//private int progress=seekbar::pr();
-	public ProximityMain (SensorManager mSensorManager,Vibrator v,Toast toast,TextView tvX) {
+	public ProximityMain (SensorManager mSensorManager,Vibrator v,Toast toast,TextView tvX1) {
 		//seekbar=this.Proximity_Interval;
 		this.mSensorManager=mSensorManager;
 		this.v=v;
 		this.toast=toast;
-		this.tvX=tvX;
+		this.tvX1=tvX1;
 		mProximity = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
 		mSensorManager.registerListener(this, mProximity, SensorManager.SENSOR_DELAY_FASTEST);
 	}
@@ -89,7 +89,7 @@ public class ProximityMain extends seekbar implements SensorEventListener{
 	@Override
 	public void onSensorChanged(SensorEvent event) {
 
-		//TextView tvX= (TextView)findViewById(R.id.textViewX);
+		//TextView tvX1= (TextView)findViewById(R.id.textViewX);
 		float x = event.values[0];
 
         v.vibrate(500);
@@ -106,6 +106,6 @@ public class ProximityMain extends seekbar implements SensorEventListener{
             //ringtone();
 
         };
-		tvX.setText(Float.toString(x));
+		tvX1.setText(Float.toString(x));
 	}
 }

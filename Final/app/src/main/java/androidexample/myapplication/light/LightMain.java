@@ -74,7 +74,7 @@ public class LightMain extends seekbar implements SensorEventListener {
         tvX.setText(Float.toString(x));
 
 
-        if (x < Light_Interval) {//ringtone();
+        if (x < 5) {//ringtone();
             v.vibrate(500);
             //Toast.makeText(getBaseContext(),"inserted",Toast.LENGTH_SHORT).show();
             //Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();

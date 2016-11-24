@@ -33,19 +33,6 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/textViewX"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView2"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_marginLeft="20dp"
-        android:layout_toRightOf="@+id/textView2"
-        android:gravity="left"
-        android:hint="Light Values"
-        android:textColor="#aaa"
-        android:textSize="20sp" />
-
-    <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -145,19 +132,6 @@
         android:layout_alignEnd="@android:id/closeButton" />
 
     <TextView
-        android:id="@+id/textViewX1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:gravity="left"
-        android:hint="Prox Values"
-        android:textColor="#aaa"
-        android:textSize="20sp"
-        android:layout_alignStart="@+id/textViewXX"
-        android:layout_marginStart="11dp"
-        android:layout_alignTop="@+id/textView4" />
-
-    <TextView
         android:id="@+id/TextView03"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -179,4 +153,30 @@
         android:textSize="25sp"
         android:layout_below="@+id/textView2"
         android:layout_alignStart="@+id/textView1" />
+
+    <TextView
+        android:id="@+id/textViewX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:gravity="left"
+        android:hint="Light Values"
+        android:textColor="#aaa"
+        android:textSize="20sp"
+        android:layout_above="@+id/textView3"
+        android:layout_alignEnd="@+id/textViewZ" />
+
+    <TextView
+        android:id="@+id/textViewX1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:gravity="left"
+        android:hint="Prox Values"
+        android:textColor="#aaa"
+        android:textSize="20sp"
+        android:layout_alignBaseline="@+id/textView4"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_alignEnd="@+id/textView3"
+        android:layout_marginEnd="11dp" />
 </RelativeLayout>
