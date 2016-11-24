@@ -1,17 +1,21 @@
 package androidexample.myapplication;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.Context;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,11 +35,28 @@ public class MainActivity extends Activity {
     public AcceleroMain accel;
     public Vibrator v;
     public Toast toast = null;
+    public ImageView imageView;
     TextView tvX;
+
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_1);
+        //getSupportActionBar().setDisplayShowHomeEnabled(true);
+        //getSupportActionBar().setLogo(R.mipmap.ic_launcher);
+        //getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+        ActionBar actionBar = getActionBar();
+        actionBar.setDisplayOptions(actionBar.DISPLAY_USE_LOGO | ActionBar.DISPLAY_SHOW_CUSTOM);
+        ImageView imageView = new ImageView(actionBar.getThemedContext());
+        imageView.setScaleType(ImageView.ScaleType.CENTER);
+        imageView.setImageResource(R.mipmap.ic_launcher);
+        ActionBar.LayoutParams layoutParams = new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT, Gravity.RIGHT | Gravity.CENTER_VERTICAL);
+        layoutParams.rightMargin = 40;
+        imageView.setLayoutParams(layoutParams);
+        actionBar.setCustomView(imageView);
+        actionBar.setDisplayShowTitleEnabled(true);
+
 //prox=new ProximityMain();
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -67,25 +88,25 @@ public class MainActivity extends Activity {
 		});
 		/*Button btAccelo = (Button) findViewById(R.id.btnAccelerometer);
 		btAccelo.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {				
+			public void onClick(View v) {
 				startActivity(new Intent(MainActivity.this, AcceleroMain.class));
 
 			}
 		});
-        
 
-        
+
+
         Button btLight = (Button) findViewById(R.id.btnLight);
         btLight.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				startActivity(new Intent(MainActivity.this, LightMain.class));
 			}
 		});
-        
+
 
         Button btProxi = (Button) findViewById(R.id.btnProximity);
         btProxi.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {				
+			public void onClick(View v) {
 				startActivity(new Intent(MainActivity.this, ProximityMain.class));
 			}
 
