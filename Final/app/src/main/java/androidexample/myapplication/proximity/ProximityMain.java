@@ -15,10 +15,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 //import com.ebakyt.androidsensors.R;
-import androidexample.myapplication.seekbar;
+import androidexample.myapplication.seekbar1;
 
 //public class ProximityMain extends  Activity  implements SensorEventListener {
-public class ProximityMain extends seekbar implements SensorEventListener{
+public class ProximityMain extends seekbar1 implements SensorEventListener{
 
 
 	private SensorManager mSensorManager;
@@ -28,13 +28,15 @@ public class ProximityMain extends seekbar implements SensorEventListener{
    	public SensorManager mSensorManager2;
 	public Vibrator v;
     public Toast toast = null;
+	public static int Proximity_Interval=0;
     private static Context aContext=  null;
 	TextView tvX1;
 
     public static Boolean supported;
 		//private int progress=seekbar::pr();
-	public ProximityMain (SensorManager mSensorManager,Vibrator v,Toast toast,TextView tvX1) {
+	public ProximityMain (SensorManager mSensorManager,Vibrator v,Toast toast,TextView tvX1,int a) {
 		//seekbar=this.Proximity_Interval;
+		this.Proximity_Interval=a;
 		this.mSensorManager=mSensorManager;
 		this.v=v;
 		this.toast=toast;
@@ -64,7 +66,9 @@ public class ProximityMain extends seekbar implements SensorEventListener{
         //super.onResume();
         mSensorManager.registerListener(this, mProximity, SensorManager.SENSOR_DELAY_FASTEST);
     }
-
+	public void change(int a){
+		Proximity_Interval=a;
+	}
     protected void onPause() {
         //super.onPause();
         mSensorManager.unregisterListener(this);
@@ -94,7 +98,7 @@ public class ProximityMain extends seekbar implements SensorEventListener{
 
         v.vibrate(500);
 
-       if(x < Proximity_Interval) {//ringtone();
+       if(x < 5) {//ringtone();
            //Toast.makeText(getBaseContext(),"inserted",Toast.LENGTH_SHORT).show();
 		  // Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
 		   toast.setText("inserted!");

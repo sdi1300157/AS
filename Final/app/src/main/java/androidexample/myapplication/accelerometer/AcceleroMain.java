@@ -1,22 +1,21 @@
 package androidexample.myapplication.accelerometer;
 
 //import android.app.Activity;
-import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-//import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
+//import android.os.Bundle;
 //import com.ebakyt.androidsensors.R;
-import androidexample.myapplication.seekbar;
 
 //public class AcceleroMain extends Activity implements SensorEventListener {
-public class AcceleroMain extends seekbar implements SensorEventListener{
+public class AcceleroMain  implements SensorEventListener{
 
 	private SensorManager mSensorManager;
+	private int Accelerometer_Interval=0;
 	public Sensor mAccelerometer;
 	public SensorManager mSensorManager3;
     //private Sensor mAccelerometer;
@@ -27,8 +26,9 @@ public class AcceleroMain extends seekbar implements SensorEventListener{
 	TextView tvZ;
 
 
-	public AcceleroMain(SensorManager mSensorManager,Toast toast,TextView tvX,TextView tvY,TextView tvZ){
+	public AcceleroMain(SensorManager mSensorManager,Toast toast,TextView tvX,TextView tvY,TextView tvZ,int a){
 		//seekbar=this.Accelero_Interval;
+		this.Accelerometer_Interval=a;
 		this.mSensorManager=mSensorManager;
 		this.toast=toast;
 		this.tvX=tvX;
@@ -64,6 +64,9 @@ public class AcceleroMain extends seekbar implements SensorEventListener{
 	@Override
 	public void onAccuracyChanged(Sensor sensor, int accuracy) {
 		///
+	}
+	public void change(int a){
+		Accelerometer_Interval=a;
 	}
 
 	@Override

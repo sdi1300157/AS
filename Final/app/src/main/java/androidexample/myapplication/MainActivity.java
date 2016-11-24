@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -14,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,8 +30,15 @@ public class MainActivity extends Activity {
     public LightMain ligh;
     public AcceleroMain accel;
     public Vibrator v;
+    public  int Proximity_Interval=0;
+    public int Accelero_Interval=0;
+    public int Light_Interval=0;
     public Toast toast = null;
+    public Toast toast1 = null;
     public ImageView imageView;
+    public SeekBar seekBar,seekBar1,seekBar2;
+    public seekbar toy,toy1,toy2;
+    public TextView textView,textView1,textView2;
     //TextView tvX;
 
 	@Override
@@ -41,6 +48,17 @@ public class MainActivity extends Activity {
         //getSupportActionBar().setDisplayShowHomeEnabled(true);
         //getSupportActionBar().setLogo(R.mipmap.ic_launcher);
         //getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+        //toast1 = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG);
+         seekBar = (SeekBar) findViewById(R.id.seekBar);
+         textView = (TextView) findViewById(R.id.textView1);
+         toy=new seekbar(toast,seekBar,textView);
+         seekBar1 = (SeekBar) findViewById(R.id.seekBar1);
+         textView1 = (TextView) findViewById(R.id.textView13);
+         toy1=new seekbar(toast,seekBar1,textView1);
+         seekBar2 = (SeekBar) findViewById(R.id.seekBar2);
+         textView2 = (TextView) findViewById(R.id.textView16);
+         toy2=new seekbar(toast,seekBar2,textView2);
 
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayOptions(actionBar.DISPLAY_USE_LOGO | ActionBar.DISPLAY_SHOW_CUSTOM);
@@ -66,9 +84,9 @@ public class MainActivity extends Activity {
         TextView tvXX = (TextView) findViewById(R.id.textViewXX);
         TextView tvY = (TextView) findViewById(R.id.textViewY);
         TextView tvZ = (TextView) findViewById(R.id.textViewZ);
-        ligh= new LightMain(mSensorManager,v,toast,tvX);
-        prox= new ProximityMain(mSensorManager_P,v,toast,tvX1);
-        accel= new AcceleroMain(mSensorManager,toast,tvXX,tvY,tvZ);
+        ligh= new LightMain(mSensorManager,v,toast,tvX,Light_Interval);
+        prox= new ProximityMain(mSensorManager_P,v,toast,tvX1,Proximity_Interval);
+        accel= new AcceleroMain(mSensorManager,toast,tvXX,tvY,tvZ,Accelero_Interval);
 
 	}
 
@@ -82,13 +100,28 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.action_settings:
                 Toast.makeText(getBaseContext(),"Settings selected", Toast.LENGTH_SHORT).show();
-                Intent toy = new Intent(MainActivity.this, seekbar.class);
-                startActivity(toy);
-                //break;
+
+                setContentView(R.layout.settings);
+
+
+                toy.exec(seekBar);
+                Light_Interval=toy.pr();
+                ligh.change(Light_Interval);
+
+
+                //toy1.exec();
+                Proximity_Interval=toy1.pr();
+                prox.change(Proximity_Interval);
+
+
+               // toy2.exec();
+                Accelero_Interval=toy2.pr();
+                accel.change(Accelero_Interval);
                 return true;
             case R.id.menu_exit:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
