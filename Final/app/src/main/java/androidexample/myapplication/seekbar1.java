@@ -1,71 +1,78 @@
 package androidexample.myapplication;
 
-import android.app.Activity;
-import android.os.Bundle;
+/**
+ * Created by Vaggelis on 26-Oct-16.
+ */
 import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
+//import androidexample.myapplication.MainActivity.Light_interval;
 
-import com.ebakyt.androidsensors.R;
-
-/**
- * Created by Vaggelis on 24-Nov-16.
- */
-
-public class seekbar1 extends Activity {
-
+public class seekbar1 {
     //settings
-    private SeekBar seekBar1;
-    private TextView textView_P;
+    public  SeekBar seekBar;
+    protected TextView textView;
+
+    public static int Progress;
+    public Toast toast;
+
+    public seekbar1( Toast toast,SeekBar seekBar, TextView textView){
+        //this.Progress=a;
+        this.seekBar=seekBar;
+        this.textView=textView;
+        //this.seekBar.setProgress(MainActivity.Light_Interval);
+        this.toast=toast;
+        toast.setText("Covered: " + seekBar.getProgress() + "/" +seekBar.getMax());
+
+    }
 
 
-    public  int Proximity_Interval=0;
-
-
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.settings);
-        initializeVariables();
-
+    public void exec(){
+        //seekBar.setProgress(Progress);
+        //this.seekBar.setProgress(MainActivity.ret());
         // Initialize the textview with '0'.
+        toast.setText("Covered: " + seekBar.getProgress() + "/" +seekBar.getMax());
 
-        textView_P.setText("Covered: " + seekBar1.getProgress() + "/" + seekBar1.getMax());
+
+        seekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 
 
-        seekBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
 
             @Override
-            public void onProgressChanged(SeekBar seekBar1, int progresValue, boolean fromUser) {
-                Proximity_Interval = progresValue;
-                Toast.makeText(getApplicationContext(), String.valueOf(Proximity_Interval), Toast.LENGTH_SHORT).show();
+            public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
+                Progress = progresValue;
+                //Progress=seekBar.getProgress();
+                MainActivity.Proximity_Interval=Progress;
+                toast.setText(String.valueOf(Progress));
+                toast.show();
+
             }
 
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar1) {
-                Toast.makeText(getApplicationContext(), "Started tracking seekbar", Toast.LENGTH_SHORT).show();
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+                toast.setText("Started tracking seekbar");
+                toast.show();
             }
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar1) {
-                textView_P.setText("Covered: " + Proximity_Interval + "/" + seekBar1.getMax());
-                Toast.makeText(getApplicationContext(), "Stopped tracking seekbar", Toast.LENGTH_SHORT).show();
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                seekbar1.this.textView.setText("Covered: " + Progress + "/" + seekBar.getMax());
+
+                toast.setText("Stopped tracking seekbar");
+                toast.show();
             }
         });
     }
-    public  int pr(){
-        return Proximity_Interval;
+    public void set_pr(int a){
+        Progress=a;
     }
+    public int pr(){return this.seekBar.getProgress();}
+
+
     // A private method to help us initialize our variables.
-    private void initializeVariables() {
 
-        seekBar1 = (SeekBar) findViewById(R.id.seekBar1);
-
-        textView_P = (TextView) findViewById(R.id.textView13);
-
-    }
 }

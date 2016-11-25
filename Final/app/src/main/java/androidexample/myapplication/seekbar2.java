@@ -1,66 +1,78 @@
 package androidexample.myapplication;
 
-import android.app.Activity;
-import android.os.Bundle;
+/**
+ * Created by Vaggelis on 26-Oct-16.
+ */
 import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
+//import androidexample.myapplication.MainActivity.Light_interval;
 
-import com.ebakyt.androidsensors.R;
-
-/**
- * Created by Vaggelis on 24-Nov-16.
- */
-
-public class seekbar2 extends Activity {
-
+public class seekbar2 {
     //settings
-    private SeekBar seekBar2;
-    private TextView textView_A;
+    public  SeekBar seekBar;
+    protected TextView textView;
 
-    public int Accelero_Interval=0;
+    public static int Progress;
+    public Toast toast;
+
+    public seekbar2( Toast toast,SeekBar seekBar, TextView textView){
+        //this.Progress=a;
+        this.seekBar=seekBar;
+        this.textView=textView;
+        //this.seekBar.setProgress(MainActivity.Light_Interval);
+        this.toast=toast;
+        toast.setText("Covered: " + seekBar.getProgress() + "/" +seekBar.getMax());
+
+    }
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void exec(){
+        //seekBar.setProgress(Progress);
+        //this.seekBar.setProgress(MainActivity.ret());
+        // Initialize the textview with '0'.
+        toast.setText("Covered: " + seekBar.getProgress() + "/" +seekBar.getMax());
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.settings);
-        initializeVariables();
+
+        seekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 
 
-        textView_A.setText("Covered: " + seekBar2.getProgress() + "/" + seekBar2.getMax());
-
-        seekBar2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
-                Accelero_Interval = progresValue;
-                Toast.makeText(getApplicationContext(), String.valueOf(Accelero_Interval), Toast.LENGTH_SHORT).show();
+                Progress = progresValue;
+                //Progress=seekBar.getProgress();
+                MainActivity.Accelero_Interval=Progress;
+                toast.setText(String.valueOf(Progress));
+                toast.show();
+
             }
 
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                Toast.makeText(getApplicationContext(), "Started tracking seekbar", Toast.LENGTH_SHORT).show();
+
+                toast.setText("Started tracking seekbar");
+                toast.show();
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                textView_A.setText("Covered: " + Accelero_Interval + "/" + seekBar.getMax());
-                Toast.makeText(getApplicationContext(), "Stopped tracking seekbar", Toast.LENGTH_SHORT).show();
+                seekbar2.this.textView.setText("Covered: " + Progress + "/" + seekBar.getMax());
+
+                toast.setText("Stopped tracking seekbar");
+                toast.show();
             }
         });
     }
-    public int pr(){
-        return Accelero_Interval;
+    public void set_pr(int a){
+        Progress=a;
     }
+    public int pr(){return this.seekBar.getProgress();}
+
+
     // A private method to help us initialize our variables.
-    private void initializeVariables() {
 
-        seekBar2 = (SeekBar) findViewById(R.id.seekBar2);
-
-        textView_A = (TextView) findViewById(R.id.textView16);
-    }
 }

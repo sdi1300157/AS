@@ -1,6 +1,7 @@
 package androidexample.myapplication.proximity;
 
 //import android.app.Activity;
+import android.app.Activity;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -9,16 +10,15 @@ import android.hardware.SensorManager;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
-//import android.os.Bundle;
 import android.os.Vibrator;
 import android.widget.TextView;
 import android.widget.Toast;
 
+//import android.os.Bundle;
 //import com.ebakyt.androidsensors.R;
-import androidexample.myapplication.seekbar1;
 
 //public class ProximityMain extends  Activity  implements SensorEventListener {
-public class ProximityMain extends seekbar1 implements SensorEventListener{
+public class ProximityMain extends Activity implements SensorEventListener{
 
 
 	private SensorManager mSensorManager;

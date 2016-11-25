@@ -47,13 +47,13 @@ public seekbar( Toast toast,SeekBar seekBar, TextView textView){
                 MainActivity.set(Progress);
                 toast.setText(String.valueOf(Progress));
                 toast.show();
-               // seekBar.setProgress(MainActivity.ret());
+
             }
 
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                //Toast.makeText(getApplicationContext(), "Started tracking seekbar", Toast.LENGTH_SHORT).show();
+
                 toast.setText("Started tracking seekbar");
                 toast.show();
             }
@@ -62,7 +62,6 @@ public seekbar( Toast toast,SeekBar seekBar, TextView textView){
             public void onStopTrackingTouch(SeekBar seekBar) {
                 seekbar.this.textView.setText("Covered: " + Progress + "/" + seekBar.getMax());
                 //MainActivity.set(Progress);
-                //Toast.makeText(getApplicationContext(), "Stopped tracking seekbar", Toast.LENGTH_SHORT).show();
                 toast.setText("Stopped tracking seekbar");
                 toast.show();
             }

@@ -23,16 +23,16 @@ public class LightMain  implements SensorEventListener {
     public Toast toast = null;
     public static Context aContext = null;
     TextView tvX;
-    public static int Light_Interval=0;
+    //public static int Light_Interval=0;
   
     public static Boolean supported;
     //seekbar=this.Light_Interval;
 
-    public LightMain(SensorManager mSensorManager,Vibrator v,Toast toast,TextView tvX,int a) {
+    public LightMain(SensorManager mSensorManager,Vibrator v,Toast toast,TextView tvX) {
         //super.onCreate(savedInstanceState);
         //seekbar=this.Light_Interval;
         //setContentView(R.layout.light);
-        this.Light_Interval=a;
+        //this.Light_Interval=a;
         this.mSensorManager=mSensorManager;
         this.v=v;
         this.toast=toast;
@@ -44,9 +44,6 @@ public class LightMain  implements SensorEventListener {
         mSensorManager.registerListener(this, mLight, SensorManager.SENSOR_DELAY_NORMAL);
 
 
-    }
-    public void change(int a){
-    Light_Interval=a;
     }
 
     protected void onResume() {

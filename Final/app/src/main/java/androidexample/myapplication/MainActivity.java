@@ -31,9 +31,9 @@ public class MainActivity extends Activity {
     public LightMain ligh;
     public AcceleroMain accel;
     public Vibrator v;
-    public  int Proximity_Interval=0;
-    public int Accelero_Interval=0;
-    public static int  Light_Interval=5;
+    public static int Proximity_Interval=0;
+    public static int Accelero_Interval=0;
+    public static int  Light_Interval=8;
     public Toast toast = null;
     public Toast toast1 = null;
     public ImageView imageView;
@@ -77,9 +77,9 @@ public class MainActivity extends Activity {
         TextView tvXX = (TextView) findViewById(R.id.textViewXX);
         TextView tvY = (TextView) findViewById(R.id.textViewY);
         TextView tvZ = (TextView) findViewById(R.id.textViewZ);
-        ligh= new LightMain(mSensorManager,v,toast,tvX,Light_Interval);
+        ligh= new LightMain(mSensorManager,v,toast,tvX);
         prox= new ProximityMain(mSensorManager_P,v,toast,tvX1,Proximity_Interval);
-        accel= new AcceleroMain(mSensorManager,toast,tvXX,tvY,tvZ,Accelero_Interval);
+        accel= new AcceleroMain(mSensorManager_A,toast,tvXX,tvY,tvZ,Accelero_Interval);
 
 	}
 
@@ -109,6 +109,7 @@ public static int ret(){
                 startActivity(cla);
                 //Light_Interval=Settings.Read_Light_Var();
                 toast.setText(String.valueOf(Light_Interval));
+                toast.show();
 
                 return true;
             case R.id.menu_exit:
