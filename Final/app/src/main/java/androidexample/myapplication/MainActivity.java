@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
     public Vibrator v;
     public  int Proximity_Interval=0;
     public int Accelero_Interval=0;
-    public int Light_Interval=0;
+    public static int  Light_Interval=5;
     public Toast toast = null;
     public Toast toast1 = null;
     public ImageView imageView;
@@ -89,7 +89,12 @@ public class MainActivity extends Activity {
         inflater.inflate(R.menu.main, menu);
         return true;
     }
-
+public static int ret(){
+    return Light_Interval;
+}
+    public static void set(int a){
+        Light_Interval=a;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -99,6 +104,7 @@ public class MainActivity extends Activity {
             case R.id.action_settings:
                 Toast.makeText(getBaseContext(),"Settings selected", Toast.LENGTH_SHORT).show();
                 //Settings.Set_Light_Var(Light_Interval);
+                //Light_Interval+=1;
                 Intent cla = new Intent(MainActivity.this,Settings.class);
                 startActivity(cla);
                 //Light_Interval=Settings.Read_Light_Var();

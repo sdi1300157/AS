@@ -15,7 +15,7 @@ import com.ebakyt.androidsensors.R;
 public class Settings extends Activity {
     public  int Proximity_Interval=0;
     public int Accelero_Interval=0;
-    public   static int Light_Interval;
+    //public   static int Light_Interval;
     public Toast toast1;
 
     public SeekBar seekBar,seekBar1,seekBar2;
@@ -28,7 +28,7 @@ public class Settings extends Activity {
         setContentView(R.layout.settings);
         toast1 = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG);
         seekBar = (SeekBar) findViewById(R.id.seekBar);
-        seekBar.setProgress(Light_Interval);
+        seekBar.setProgress(MainActivity.ret());
         textView = (TextView) findViewById(R.id.textView1);
         toy=new seekbar(toast1,seekBar,textView);
         seekBar1 = (SeekBar) findViewById(R.id.seekBar1);
@@ -40,10 +40,10 @@ public class Settings extends Activity {
 
         //toy.set_pr(Light_Interval);
         toy.exec();
-        Light_Interval=toy.pr();
-        toast1.setText(Light_Interval+" <------");
+        //MainActivity.set(toy.pr());
+        toast1.setText(String.valueOf(MainActivity.ret())+" <------");
         toast1.show();
-        toy.set_pr(Light_Interval);
+        //toy.set_pr(Light_Interval);
 
 
         toy1.exec();
@@ -65,10 +65,10 @@ public class Settings extends Activity {
 
     }
 
-    public static void Set_Light_Var(int a){
+   /* public static void Set_Light_Var(int a){
         Light_Interval=a;
     }
-    public static int  Read_Light_Var(){return Light_Interval;}
+    public static int  Read_Light_Var(){return Light_Interval;}*/
 
 
 
