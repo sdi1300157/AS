@@ -1,5 +1,6 @@
 package androidexample.myapplication.light;
 
+import android.app.Activity;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -9,7 +10,8 @@ import android.os.Vibrator;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class LightMain  implements SensorEventListener {
+import androidexample.myapplication.MainActivity;
+public class LightMain extends Activity implements SensorEventListener {
 
 
 
@@ -73,14 +75,13 @@ public class LightMain  implements SensorEventListener {
         tvX.setText(Float.toString(x));
 
 
-        if (x < 5) {//ringtone();
-            //v.vibrate(500);
-            //Toast.makeText(getBaseContext(),"inserted",Toast.LENGTH_SHORT).show();
-            //Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
-            //toast.setText(String.valueOf(Light_Interval));
+        if (x < MainActivity.Light_Interval) {//ringtone();
 
-            //toast.setText(String.valueOf(Light_Interval)+"inserted Light!");
-            //toast.show();
+            MainActivity.ringtone();
+            if(v.hasVibrator()) {
+                v.vibrate(500);}
+            toast.setText("Light Sensor");
+            toast.show();
         }
         ;
 
