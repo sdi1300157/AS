@@ -17,12 +17,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
-import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidexample.myapplication.R.R;
-
 import androidexample.myapplication.accelerometer.AcceleroMain;
 import androidexample.myapplication.light.LightMain;
 import androidexample.myapplication.proximity.ProximityMain;
@@ -38,13 +36,9 @@ public class MainActivity extends Activity {
     public static int Accelero_Interval=10;
     public static int  Light_Interval=10;
     public Toast toast = null;
-    public Toast toast1 = null;
-    public ImageView imageView;
-    public SeekBar seekBar,seekBar1,seekBar2;
-    public seekbar toy,toy1,toy2;
-    public TextView textView,textView1,textView2;
+
     public static Ringtone r;
-    //TextView tvX;
+
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
@@ -89,7 +83,8 @@ public class MainActivity extends Activity {
             r.play();
         } catch (Exception e) {
             e.printStackTrace();
-            //Toast.makeText(getBaseContext(), "No ring tone",Toast.LENGTH_SHORT).show();
+
+
         }
     }
     @Override
@@ -112,11 +107,10 @@ public static int ret(){
         switch (item.getItemId()) {
             case R.id.action_settings:
                 Toast.makeText(getBaseContext(),"Settings selected", Toast.LENGTH_SHORT).show();
-                //Settings.Set_Light_Var(Light_Interval);
-                //Light_Interval+=1;
+
                 Intent cla = new Intent(MainActivity.this,Settings.class);
                 startActivity(cla);
-                //Light_Interval=Settings.Read_Light_Var();
+
                 toast.setText(String.valueOf(Light_Interval));
                 toast.show();
 

@@ -1,7 +1,6 @@
 package androidexample.myapplication.light;
 
 import android.app.Activity;
-import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -17,31 +16,16 @@ public class LightMain extends Activity implements SensorEventListener {
 
     private SensorManager mSensorManager;
     public Sensor mLight;
-    //private Vibrator v;
-    //private Toast toast = null;
-    public SensorManager mSensorManager1;
-    public Sensor mProximity;
+
     public Vibrator v;
     public Toast toast = null;
-    public static Context aContext = null;
     TextView tvX;
-    //public static int Light_Interval=0;
-  
-    public static Boolean supported;
-    //seekbar=this.Light_Interval;
-
     public LightMain(SensorManager mSensorManager,Vibrator v,Toast toast,TextView tvX) {
-        //super.onCreate(savedInstanceState);
-        //seekbar=this.Light_Interval;
-        //setContentView(R.layout.light);
-        //this.Light_Interval=a;
+
         this.mSensorManager=mSensorManager;
         this.v=v;
         this.toast=toast;
         this.tvX=tvX;
-        //mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        //toast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG);
-        //v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         mLight = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
         mSensorManager.registerListener(this, mLight, SensorManager.SENSOR_DELAY_NORMAL);
 
@@ -49,7 +33,7 @@ public class LightMain extends Activity implements SensorEventListener {
     }
 
     protected void onResume() {
-        //super.onResume();
+
         mSensorManager.registerListener(this, mLight, SensorManager.SENSOR_DELAY_NORMAL);
 
 
@@ -57,14 +41,14 @@ public class LightMain extends Activity implements SensorEventListener {
 
 
     protected void onPause() {
-        //super.onPause();
+
         mSensorManager.unregisterListener(this);
 
     }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        ///
+
     }
 
     @Override
@@ -88,4 +72,4 @@ public class LightMain extends Activity implements SensorEventListener {
 
     }
 }
-//}
+

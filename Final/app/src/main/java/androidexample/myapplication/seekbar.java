@@ -18,7 +18,7 @@ public class seekbar {
     public Toast toast;
 
 public seekbar( Toast toast,SeekBar seekBar, TextView textView){
-    //this.Progress=a;
+
     this.seekBar=seekBar;
     this.seekBar.setMax(18);
 
@@ -32,9 +32,7 @@ public seekbar( Toast toast,SeekBar seekBar, TextView textView){
 
 
     public void exec(){
-        //seekBar.setProgress(Progress);
-        //this.seekBar.setProgress(MainActivity.ret());
-        // Initialize the textview with '0'.
+
        toast.setText("Covered: " + seekBar.getProgress() + "/" +seekBar.getMax());
 
 
@@ -46,7 +44,7 @@ public seekbar( Toast toast,SeekBar seekBar, TextView textView){
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
                 Progress = progresValue;
-                //Progress=seekBar.getProgress();
+
                 MainActivity.set(Progress);
                 toast.setText(String.valueOf(Progress));
                 toast.show();
@@ -64,7 +62,7 @@ public seekbar( Toast toast,SeekBar seekBar, TextView textView){
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 seekbar.this.textView.setText("Covered: " + Progress + "/" + seekBar.getMax());
-                //MainActivity.set(Progress);
+
                 toast.setText("Stopped tracking seekbar");
                 toast.show();
             }

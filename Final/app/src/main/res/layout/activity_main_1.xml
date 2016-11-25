@@ -123,14 +123,6 @@
         android:layout_below="@+id/textView5"
         android:layout_toStartOf="@+id/textViewY" />
 
-    <Button
-        android:text="START"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnsettings"
-        android:layout_alignParentTop="true"
-        android:layout_alignEnd="@android:id/closeButton" />
-
     <TextView
         android:id="@+id/TextView03"
         android:layout_width="wrap_content"
