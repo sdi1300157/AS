@@ -20,6 +20,9 @@ public class seekbar {
 public seekbar( Toast toast,SeekBar seekBar, TextView textView){
     //this.Progress=a;
     this.seekBar=seekBar;
+    this.seekBar.setMax(18);
+
+
     this.textView=textView;
     this.seekBar.setProgress(MainActivity.Light_Interval);
     this.toast=toast;

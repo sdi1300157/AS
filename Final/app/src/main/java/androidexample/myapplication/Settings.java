@@ -6,7 +6,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ebakyt.androidsensors.R;
+import androidexample.myapplication.R.R;
 
 /**
  * Created by Vaggelis on 24-Nov-16.

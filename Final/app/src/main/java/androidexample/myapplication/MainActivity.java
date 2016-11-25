@@ -7,6 +7,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.hardware.SensorManager;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.Gravity;
@@ -18,7 +21,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ebakyt.androidsensors.R;
+import androidexample.myapplication.R.R;
 
 import androidexample.myapplication.accelerometer.AcceleroMain;
 import androidexample.myapplication.light.LightMain;
@@ -31,27 +34,25 @@ public class MainActivity extends Activity {
     public LightMain ligh;
     public AcceleroMain accel;
     public Vibrator v;
-    public static int Proximity_Interval=0;
-    public static int Accelero_Interval=0;
-    public static int  Light_Interval=8;
+    public static int Proximity_Interval=10;
+    public static int Accelero_Interval=10;
+    public static int  Light_Interval=10;
     public Toast toast = null;
     public Toast toast1 = null;
     public ImageView imageView;
     public SeekBar seekBar,seekBar1,seekBar2;
     public seekbar toy,toy1,toy2;
     public TextView textView,textView1,textView2;
+    public static Ringtone r;
     //TextView tvX;
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_1);
-        //getSupportActionBar().setDisplayShowHomeEnabled(true);
-        //getSupportActionBar().setLogo(R.mipmap.ic_launcher);
-        //getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        //toast1 = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG);
-
+        Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        r = RingtoneManager.getRingtone(getApplicationContext(), notification);
 
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayOptions(actionBar.DISPLAY_USE_LOGO | ActionBar.DISPLAY_SHOW_CUSTOM);
@@ -64,7 +65,7 @@ public class MainActivity extends Activity {
         actionBar.setCustomView(imageView);
         actionBar.setDisplayShowTitleEnabled(true);
 
-//prox=new ProximityMain();
+
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mSensorManager_P= (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mSensorManager_A= (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -82,7 +83,15 @@ public class MainActivity extends Activity {
         accel= new AcceleroMain(mSensorManager_A,toast,tvXX,tvY,tvZ,Accelero_Interval);
 
 	}
+    public static void ringtone() {
+        try {
 
+            r.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+            //Toast.makeText(getBaseContext(), "No ring tone",Toast.LENGTH_SHORT).show();
+        }
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
