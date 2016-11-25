@@ -9,9 +9,7 @@ import android.os.Vibrator;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidexample.myapplication.seekbar;
-
-public class LightMain extends seekbar implements SensorEventListener {
+public class LightMain  implements SensorEventListener {
 
 
 
@@ -25,7 +23,12 @@ public class LightMain extends seekbar implements SensorEventListener {
     public Toast toast = null;
     public static Context aContext = null;
     TextView tvX;
+<<<<<<< HEAD
 
+=======
+    //public static int Light_Interval=0;
+  
+>>>>>>> refs/remotes/origin/giannis
     public static Boolean supported;
     //seekbar=this.Light_Interval;
 
@@ -33,6 +36,7 @@ public class LightMain extends seekbar implements SensorEventListener {
         //super.onCreate(savedInstanceState);
         //seekbar=this.Light_Interval;
         //setContentView(R.layout.light);
+        //this.Light_Interval=a;
         this.mSensorManager=mSensorManager;
         this.v=v;
         this.toast=toast;
@@ -45,7 +49,6 @@ public class LightMain extends seekbar implements SensorEventListener {
 
 
     }
-
 
     protected void onResume() {
         //super.onResume();
@@ -74,12 +77,14 @@ public class LightMain extends seekbar implements SensorEventListener {
         tvX.setText(Float.toString(x));
 
 
-        if (x < Light_Interval) {//ringtone();
-            v.vibrate(500);
+        if (x < 5) {//ringtone();
+            //v.vibrate(500);
             //Toast.makeText(getBaseContext(),"inserted",Toast.LENGTH_SHORT).show();
             //Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
-            toast.setText("inserted Light!");
-            toast.show();
+            //toast.setText(String.valueOf(Light_Interval));
+
+            //toast.setText(String.valueOf(Light_Interval)+"inserted Light!");
+            //toast.show();
         }
         ;
 

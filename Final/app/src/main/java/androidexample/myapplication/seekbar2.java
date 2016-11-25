@@ -9,30 +9,30 @@ import android.widget.TextView;
 import android.widget.Toast;
 //import androidexample.myapplication.MainActivity.Light_interval;
 
-public class seekbar {
-//settings
+public class seekbar2 {
+    //settings
     public  SeekBar seekBar;
     protected TextView textView;
 
     public static int Progress;
     public Toast toast;
 
-public seekbar( Toast toast,SeekBar seekBar, TextView textView){
-    //this.Progress=a;
-    this.seekBar=seekBar;
-    this.textView=textView;
-    this.seekBar.setProgress(MainActivity.Light_Interval);
-    this.toast=toast;
-    toast.setText("Covered: " + seekBar.getProgress() + "/" +seekBar.getMax());
+    public seekbar2( Toast toast,SeekBar seekBar, TextView textView){
+        //this.Progress=a;
+        this.seekBar=seekBar;
+        this.textView=textView;
+        //this.seekBar.setProgress(MainActivity.Light_Interval);
+        this.toast=toast;
+        toast.setText("Covered: " + seekBar.getProgress() + "/" +seekBar.getMax());
 
-}
+    }
 
 
     public void exec(){
         //seekBar.setProgress(Progress);
         //this.seekBar.setProgress(MainActivity.ret());
         // Initialize the textview with '0'.
-       toast.setText("Covered: " + seekBar.getProgress() + "/" +seekBar.getMax());
+        toast.setText("Covered: " + seekBar.getProgress() + "/" +seekBar.getMax());
 
 
         seekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
@@ -44,7 +44,7 @@ public seekbar( Toast toast,SeekBar seekBar, TextView textView){
             public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
                 Progress = progresValue;
                 //Progress=seekBar.getProgress();
-                MainActivity.set(Progress);
+                MainActivity.Accelero_Interval=Progress;
                 toast.setText(String.valueOf(Progress));
                 toast.show();
 
@@ -60,16 +60,16 @@ public seekbar( Toast toast,SeekBar seekBar, TextView textView){
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                seekbar.this.textView.setText("Covered: " + Progress + "/" + seekBar.getMax());
-                //MainActivity.set(Progress);
+                seekbar2.this.textView.setText("Covered: " + Progress + "/" + seekBar.getMax());
+
                 toast.setText("Stopped tracking seekbar");
                 toast.show();
             }
         });
     }
-public void set_pr(int a){
-    Progress=a;
-}
+    public void set_pr(int a){
+        Progress=a;
+    }
     public int pr(){return this.seekBar.getProgress();}
 
 

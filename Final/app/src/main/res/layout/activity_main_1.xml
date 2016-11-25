@@ -15,10 +15,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:text="Light Values (lux)"
         android:textColor="#cf3"
-        android:textSize="19sp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -26,61 +26,25 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView1"
-        android:layout_marginLeft="135dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="25dp"
         android:text="Light :"
         android:textColor="#0ff"
-        android:textSize="17sp" />
-
-    <TextView
-        android:id="@+id/textViewX"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView2"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/textView2"
-        android:gravity="left"
-        android:hint="Light Values"
-        android:textColor="#aaa"
-        android:textSize="17sp" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Proximity Values (cm)"
-        android:textColor="#cf3"
-        android:textSize="19sp"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="32dp" />
-
-    <TextView
-        android:id="@+id/textViewX1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:gravity="left"
-        android:hint="Prox Values"
-        android:textColor="#aaa"
-        android:textSize="17sp"
-        android:layout_alignBaseline="@+id/textView4"
-        android:layout_alignBottom="@+id/textView4"
-        android:layout_toEndOf="@+id/textView1" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="120dp"
+        android:layout_marginLeft="100dp"
         android:text="Proximity :"
         android:textColor="#0ff"
-        android:textSize="17sp"
+        android:textSize="20sp"
         android:layout_below="@+id/textView3"
-        android:layout_alignEnd="@+id/textView3"
-        android:layout_marginTop="80dp" />
+        android:layout_marginTop="30dp"
+        android:layout_toStartOf="@+id/textViewXX"
+        android:layout_alignEnd="@+id/textView1"
+        />
 
 
     <TextView
@@ -94,7 +58,7 @@
         android:gravity="left"
         android:hint="Y-axis Values"
         android:textColor="#aaa"
-        android:textSize="17sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textViewZ"
@@ -107,18 +71,18 @@
         android:gravity="left"
         android:hint="Z-axis Values"
         android:textColor="#aaa"
-        android:textSize="17sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="57dp"
+        android:layout_marginTop="50dp"
         android:text="Accelerometer Values (m/s\u00B2)"
         android:textColor="#cf3"
-        android:textSize="19sp"
+        android:textSize="25sp"
         android:layout_below="@+id/textView4"
-        android:layout_alignEnd="@+id/textViewZ" />
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:id="@+id/textViewXX"
@@ -128,45 +92,36 @@
         android:gravity="left"
         android:hint="X-axis Values"
         android:textColor="#aaa"
-        android:textSize="17sp"
+        android:textSize="20sp"
         android:layout_above="@+id/TextView01"
-        android:layout_alignStart="@+id/textViewX" />
+        android:layout_alignEnd="@+id/textViewX"
+        android:layout_alignTop="@+id/textView6"
+        android:layout_toEndOf="@+id/textView6" />
 
     <TextView
         android:id="@+id/TextView01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="90dp"
+        android:layout_marginLeft="50dp"
         android:text="Y-axis :"
         android:textColor="#0ff"
-        android:textSize="17sp"
+        android:textSize="20sp"
         android:layout_below="@+id/textView6"
         android:layout_alignEnd="@+id/textView2"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="15dp"
+        android:layout_toStartOf="@+id/textViewX"/>
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="90dp"
+        android:layout_marginLeft="50dp"
         android:layout_marginTop="25dp"
         android:text="X-axis :"
         android:textColor="#0ff"
-        android:textSize="17sp"
+        android:textSize="20sp"
         android:layout_below="@+id/textView5"
         android:layout_toStartOf="@+id/textViewY" />
-
-    <TextView
-        android:id="@+id/TextView03"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="90dp"
-        android:layout_marginTop="12dp"
-        android:text="Z-axis :"
-        android:textColor="#0ff"
-        android:textSize="17sp"
-        android:layout_below="@+id/textViewY"
-        android:layout_toStartOf="@+id/textViewXX" />
 
     <Button
         android:text="START"
@@ -175,4 +130,53 @@
         android:id="@+id/btnsettings"
         android:layout_alignParentTop="true"
         android:layout_alignEnd="@android:id/closeButton" />
+
+    <TextView
+        android:id="@+id/TextView03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="18dp"
+        android:text="Z-axis :"
+        android:textColor="#0ff"
+        android:textSize="20sp"
+        android:layout_below="@+id/TextView01"
+        android:layout_alignStart="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Proximity Values (cm)"
+        android:textColor="#cf3"
+        android:textSize="25sp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignStart="@+id/textView1" />
+
+    <TextView
+        android:id="@+id/textViewX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:gravity="left"
+        android:hint="Light Values"
+        android:textColor="#aaa"
+        android:textSize="20sp"
+        android:layout_above="@+id/textView3"
+        android:layout_alignEnd="@+id/textViewZ" />
+
+    <TextView
+        android:id="@+id/textViewX1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:gravity="left"
+        android:hint="Prox Values"
+        android:textColor="#aaa"
+        android:textSize="20sp"
+        android:layout_alignBaseline="@+id/textView4"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_alignEnd="@+id/textView3"
+        android:layout_marginEnd="11dp" />
 </RelativeLayout>
