@@ -4,8 +4,11 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Vibrator;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidexample.myapplication.MainActivity;
 
 public class AcceleroMain  implements SensorEventListener{
 
@@ -13,14 +16,16 @@ public class AcceleroMain  implements SensorEventListener{
 	private int Accelerometer_Interval=0;
 	public Sensor mAccelerometer;
 	public Toast toast = null;
+	public Vibrator v;
 	TextView tvX;
 	TextView tvY;
 	TextView tvZ;
 
-	public AcceleroMain(SensorManager mSensorManager,Toast toast,TextView tvX,TextView tvY,TextView tvZ,int a){
+	public AcceleroMain(SensorManager mSensorManager,Vibrator v,Toast toast,TextView tvX,TextView tvY,TextView tvZ,int a){
 
 		this.Accelerometer_Interval=a;
 		this.mSensorManager=mSensorManager;
+		this.v=v;
 		this.toast=toast;
 		this.tvX=tvX;
 		this.tvY=tvY;
@@ -52,5 +57,13 @@ public class AcceleroMain  implements SensorEventListener{
 		tvX.setText(Float.toString(x));
 		tvY.setText(Float.toString(y));
 		tvZ.setText(Float.toString(z));
+		if (z > MainActivity.Accelero_Interval || z <(-1* MainActivity.Accelero_Interval) ) {
+			MainActivity.ringtone();
+			if(v.hasVibrator()) {
+				//v.vibrate(500);
+			}
+			toast.setText("Accelerometer Sensor --> \n Hold your phone to the right Angle");
+			toast.show();
+		}
 	}
 }

@@ -6,7 +6,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class seekbar2 {
+public class seekbar2  {
 
     public  SeekBar seekBar;
     protected TextView textView;
@@ -16,15 +16,18 @@ public class seekbar2 {
     public seekbar2( Toast toast,SeekBar seekBar, TextView textView){
 
         this.seekBar=seekBar;
+        this.seekBar.setMax(20);
         this.textView=textView;
         this.toast=toast;
         toast.setText("Covered: " + seekBar.getProgress() + "/" +seekBar.getMax());
     }
 
 
+
+
     public void exec(){
         // Initialize the textview with '0'.
-        toast.setText("Covered: " + seekBar.getProgress() + "/" +seekBar.getMax());
+        //toast.setText("Covered: " + seekBar.getProgress() + "/" +seekBar.getMax());
 
         seekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 
@@ -32,6 +35,7 @@ public class seekbar2 {
             public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
 
                 Progress = progresValue;
+
                 MainActivity.Accelero_Interval=Progress;
                 toast.setText(String.valueOf(Progress));
                 toast.show();
