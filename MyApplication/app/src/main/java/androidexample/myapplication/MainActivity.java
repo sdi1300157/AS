@@ -26,16 +26,32 @@ import androidexample.myapplication.proximity.ProximityMain;
 
 public class MainActivity extends Activity {
 
+    public static int Proximity_Interval = 0;
+    public static int Accelero_Interval = 10;
+    public static int Light_Interval = 0;
+    public static Ringtone r;
     public ProximityMain prox;
-    private SensorManager mSensorManager,mSensorManager_P,mSensorManager_A;
     public LightMain ligh;
     public AcceleroMain accel;
     public Vibrator v;
-    public static int Proximity_Interval=0;
-    public static int Accelero_Interval=10;
-    public static int  Light_Interval=0;
     public Toast toast = null;
-    public static Ringtone r;
+    private SensorManager mSensorManager, mSensorManager_P, mSensorManager_A;
+
+    public static void ringtone() {
+        try {
+            r.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static int ret() {
+        return Light_Interval;
+    }
+
+    public static void set(int a) {
+        Light_Interval = a;
+    }
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -59,8 +75,8 @@ public class MainActivity extends Activity {
 
 
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        mSensorManager_P= (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        mSensorManager_A= (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mSensorManager_P = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mSensorManager_A = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         toast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG);
 
@@ -69,18 +85,10 @@ public class MainActivity extends Activity {
         TextView tvXX = (TextView) findViewById(R.id.textViewXX);
         TextView tvY = (TextView) findViewById(R.id.textViewY);
         TextView tvZ = (TextView) findViewById(R.id.textViewZ);
-        ligh= new LightMain(mSensorManager,v,toast,tvX);
-        prox= new ProximityMain(mSensorManager_P,v,toast,tvX1,Proximity_Interval);
-        accel= new AcceleroMain(mSensorManager_A,v,toast,tvXX,tvY,tvZ,Accelero_Interval);
+        ligh = new LightMain(mSensorManager, v, toast, tvX);
+        prox = new ProximityMain(mSensorManager_P, v, toast, tvX1, Proximity_Interval);
+        accel = new AcceleroMain(mSensorManager_A, v, toast, tvXX, tvY, tvZ, Accelero_Interval);
 
-    }
-
-    public static void ringtone() {
-        try {
-            r.play();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
@@ -91,21 +99,14 @@ public class MainActivity extends Activity {
         return true;
     }
 
-    public static int ret(){
-        return Light_Interval;
-    }
-    public static void set(int a){
-        Light_Interval=a;
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
             case R.id.action_settings:
-                Toast.makeText(getBaseContext(),"Settings selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "Settings selected", Toast.LENGTH_SHORT).show();
 
-                Intent cla = new Intent(MainActivity.this,Settings.class);
+                Intent cla = new Intent(MainActivity.this, Settings.class);
                 startActivity(cla);
 
                 toast.setText(String.valueOf(Light_Interval));
@@ -124,7 +125,7 @@ public class MainActivity extends Activity {
                         moveTaskToBack(true);
                         android.os.Process.killProcess(android.os.Process.myPid());
                         System.exit(1);
-                        Toast.makeText(getBaseContext(),"Exit app",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "Exit app", Toast.LENGTH_SHORT).show();
                     }
                 });
 

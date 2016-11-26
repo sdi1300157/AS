@@ -8,31 +8,31 @@ import android.widget.Toast;
 
 public class seekbar1 {
 
-    public  SeekBar seekBar;
-    protected TextView textView;
     public static int Progress;
+    public SeekBar seekBar;
     public Toast toast;
+    protected TextView textView;
 
-    public seekbar1( Toast toast,SeekBar seekBar, TextView textView){
+    public seekbar1(Toast toast, SeekBar seekBar, TextView textView) {
 
-        this.seekBar=seekBar;
+        this.seekBar = seekBar;
         this.seekBar.setMax(18);
-        this.textView=textView;
-        this.toast=toast;
-        toast.setText("Covered: " + seekBar.getProgress() + "/" +seekBar.getMax());
+        this.textView = textView;
+        this.toast = toast;
+        toast.setText("Covered: " + seekBar.getProgress() + "/" + seekBar.getMax());
     }
 
 
-    public void exec(){
+    public void exec() {
 
-        toast.setText("Covered: " + seekBar.getProgress() + "/" +seekBar.getMax());
+        toast.setText("Covered: " + seekBar.getProgress() + "/" + seekBar.getMax());
 
         seekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
                 Progress = progresValue;
-                MainActivity.Proximity_Interval=Progress;
+                MainActivity.Proximity_Interval = Progress;
                 toast.setText(String.valueOf(Progress));
                 toast.show();
             }
@@ -53,8 +53,12 @@ public class seekbar1 {
             }
         });
     }
-    public void set_pr(int a){
-        Progress=a;
+
+    public void set_pr(int a) {
+        Progress = a;
     }
-    public int pr(){return this.seekBar.getProgress();}
+
+    public int pr() {
+        return this.seekBar.getProgress();
+    }
 }

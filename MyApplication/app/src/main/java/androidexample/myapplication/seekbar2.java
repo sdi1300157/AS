@@ -6,26 +6,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class seekbar2  {
+public class seekbar2 {
 
-    public  SeekBar seekBar;
-    protected TextView textView;
     public static int Progress;
+    public SeekBar seekBar;
     public Toast toast;
+    protected TextView textView;
 
-    public seekbar2( Toast toast,SeekBar seekBar, TextView textView){
+    public seekbar2(Toast toast, SeekBar seekBar, TextView textView) {
 
-        this.seekBar=seekBar;
+        this.seekBar = seekBar;
         this.seekBar.setMax(20);
-        this.textView=textView;
-        this.toast=toast;
-        toast.setText("Covered: " + seekBar.getProgress() + "/" +seekBar.getMax());
+        this.textView = textView;
+        this.toast = toast;
+        toast.setText("Covered: " + seekBar.getProgress() + "/" + seekBar.getMax());
     }
 
 
-
-
-    public void exec(){
+    public void exec() {
         // Initialize the textview with '0'.
         //toast.setText("Covered: " + seekBar.getProgress() + "/" +seekBar.getMax());
 
@@ -36,7 +34,7 @@ public class seekbar2  {
 
                 Progress = progresValue;
 
-                MainActivity.Accelero_Interval=Progress;
+                MainActivity.Accelero_Interval = Progress;
                 toast.setText(String.valueOf(Progress));
                 toast.show();
             }
@@ -57,9 +55,13 @@ public class seekbar2  {
             }
         });
     }
-    public void set_pr(int a){
-        Progress=a;
+
+    public void set_pr(int a) {
+        Progress = a;
     }
-    public int pr(){return this.seekBar.getProgress();}
+
+    public int pr() {
+        return this.seekBar.getProgress();
+    }
     // A private method to help us initialize our variables.
 }
