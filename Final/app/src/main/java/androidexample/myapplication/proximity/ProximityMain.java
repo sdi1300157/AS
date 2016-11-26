@@ -8,13 +8,9 @@ import android.hardware.SensorManager;
 import android.os.Vibrator;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidexample.myapplication.MainActivity;
 
-
-
 public class ProximityMain extends Activity implements SensorEventListener{
-
 
 	private SensorManager mSensorManager;
     public Sensor mProximity;
@@ -22,7 +18,6 @@ public class ProximityMain extends Activity implements SensorEventListener{
     public Toast toast = null;
 	public static int Proximity_Interval=0;
 	TextView tvX1;
-
     public static Boolean supported;
 
 	public ProximityMain (SensorManager mSensorManager,Vibrator v,Toast toast,TextView tvX1,int a) {
@@ -36,8 +31,6 @@ public class ProximityMain extends Activity implements SensorEventListener{
 		mSensorManager.registerListener(this, mProximity, SensorManager.SENSOR_DELAY_FASTEST);
 	}
 
-
-    
     protected void onResume() {
 
         mSensorManager.registerListener(this, mProximity, SensorManager.SENSOR_DELAY_FASTEST);
@@ -50,7 +43,6 @@ public class ProximityMain extends Activity implements SensorEventListener{
 
 	@Override
 	public void onAccuracyChanged(Sensor sensor, int accuracy) {
-		///
 
 		if (accuracy>=5) MainActivity.ringtone();
 	}
@@ -58,17 +50,14 @@ public class ProximityMain extends Activity implements SensorEventListener{
 	@Override
 	public void onSensorChanged(SensorEvent event) {
 
-
 		float x = event.values[0];
         if(x < MainActivity.Proximity_Interval) {
             MainActivity.ringtone();
 		   if(v.hasVibrator()) {
 		   v.vibrate(500);}
-
             toast.setText("Proximity Sensor");
             toast.show();
 		  };
-
 		tvX1.setText(Float.toString(x));
 	}
 }

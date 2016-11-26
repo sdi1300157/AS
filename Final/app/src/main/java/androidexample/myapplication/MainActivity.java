@@ -19,7 +19,6 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidexample.myapplication.R.R;
 import androidexample.myapplication.accelerometer.AcceleroMain;
 import androidexample.myapplication.light.LightMain;
@@ -36,12 +35,11 @@ public class MainActivity extends Activity {
     public static int Accelero_Interval=10;
     public static int  Light_Interval=10;
     public Toast toast = null;
-
     public static Ringtone r;
-
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_1);
 
@@ -67,7 +65,6 @@ public class MainActivity extends Activity {
         toast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG);
 
         TextView tvX = (TextView) findViewById(R.id.textViewX);
-
         TextView tvX1 = (TextView) findViewById(R.id.textViewX1);
         TextView tvXX = (TextView) findViewById(R.id.textViewXX);
         TextView tvY = (TextView) findViewById(R.id.textViewY);
@@ -77,22 +74,23 @@ public class MainActivity extends Activity {
         accel= new AcceleroMain(mSensorManager_A,toast,tvXX,tvY,tvZ,Accelero_Interval);
 
 	}
+
     public static void ringtone() {
         try {
-
             r.play();
         } catch (Exception e) {
             e.printStackTrace();
-
-
         }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main, menu);
         return true;
     }
+
 public static int ret(){
     return Light_Interval;
 }
@@ -103,7 +101,6 @@ public static int ret(){
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        // Handle item selection
         switch (item.getItemId()) {
             case R.id.action_settings:
                 Toast.makeText(getBaseContext(),"Settings selected", Toast.LENGTH_SHORT).show();
@@ -115,6 +112,7 @@ public static int ret(){
                 toast.show();
 
                 return true;
+
             case R.id.menu_exit:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setCancelable(false);
@@ -122,18 +120,18 @@ public static int ret(){
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //if user pressed "yes", then he is allowed to exit from application
-                        //finish();
+
                         moveTaskToBack(true);
                         android.os.Process.killProcess(android.os.Process.myPid());
                         System.exit(1);
                         Toast.makeText(getBaseContext(),"Exit app",Toast.LENGTH_SHORT).show();
                     }
                 });
+
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //if user select "No", just cancel this dialog and continue with app
+
                         dialog.cancel();
                     }
                 });
@@ -144,6 +142,7 @@ public static int ret(){
                 return super.onOptionsItemSelected(item);
         }
     }
+
     @Override
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -152,8 +151,7 @@ public static int ret(){
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                //if user pressed "yes", then he is allowed to exit from application
-                //finish();
+
                 moveTaskToBack(true);
                 android.os.Process.killProcess(android.os.Process.myPid());
                 System.exit(1);
@@ -162,12 +160,11 @@ public static int ret(){
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                //if user select "No", just cancel this dialog and continue with app
+
                 dialog.cancel();
             }
         });
         AlertDialog alert = builder.create();
         alert.show();
     }
-
 }

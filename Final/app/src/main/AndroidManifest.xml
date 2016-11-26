@@ -21,18 +21,13 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+
         <activity android:name="androidexample.myapplication.Settings"></activity>
         <activity android:name="androidexample.myapplication.accelerometer.AcceleroMain"></activity>
-
-
         <activity android:name="androidexample.myapplication.light.LightMain"></activity>
-
-
         <activity android:name="androidexample.myapplication.proximity.ProximityMain"></activity>
 
     </application>
